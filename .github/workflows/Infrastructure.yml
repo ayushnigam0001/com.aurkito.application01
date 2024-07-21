@@ -6,6 +6,8 @@ on:
     pull_request:
       branches:
         - master
+      types: [opened, reopened]
+    
     workflow_dispatch:
     
 
@@ -23,3 +25,5 @@ jobs:
 
             - name: Print Github
               run: echo "Context Object github print ${{ toJson(github) }}"
+
+
