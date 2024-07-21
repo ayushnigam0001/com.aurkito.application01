@@ -1,6 +1,18 @@
 name: InfraStructure Deployment
-on: workflow_dispatch
+on:
+    push:
+      branches:
+        - master
+    pull_request:
+      branches:
+        - master
+    workflow_dispatch:
+    
 
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
 
 jobs: 
     Plan:
@@ -8,3 +20,6 @@ jobs:
         steps:
             - name: Start Plan
               run: echo "Hello Plan!!"
+
+            - name: Print Github
+              run: echo "Context Object github print ${{ toJson(github) }}"
