@@ -1,0 +1,10 @@
+name: InfraStructure Deployment
+on: workflow_dispatch
+
+
+jobs: 
+    Plan:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Start Plan
+              run: echo "Hello Plan!!"
