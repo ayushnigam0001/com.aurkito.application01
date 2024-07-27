@@ -12,7 +12,7 @@ phases:
       - echo This always runs even if the update or install command fails 
   pre_build:
     commands:
-      - echo Entered the pre_build phase...
+      - cat ./helloworld.txt
     finally:
       - echo This always runs even if the login command fails 
   build:
