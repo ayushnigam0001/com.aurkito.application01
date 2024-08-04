@@ -13,8 +13,6 @@ phases:
       - docker tag my-app-image $DOCKERHUB_USERNAME/my-app-image:latest
   post_build:
     commands:
-      - echo Install docker
-      - apt install docker.io -y
       - echo Pushing the Docker image to Docker Hub...
       - docker push $DOCKERHUB_USERNAME/my-app-image:latest
       - echo Build completed on `date`
