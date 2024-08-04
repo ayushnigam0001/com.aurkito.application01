@@ -4,8 +4,11 @@
 set -e
 
 # Create a temporary SSH key file
+echo touch command
 touch /tmp/deploy_key.pem
+echo cat private key command
 cat PRIVATE.key > /tmp/deploy_key.pem
+echo permission 600
 chmod 600 /tmp/deploy_key.pem
 
 # Connect to the EC2 instance and perform deployment steps
