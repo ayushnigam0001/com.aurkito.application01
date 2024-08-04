@@ -13,8 +13,8 @@ chmod 600 /tmp/deploy_key.pem
 
 # Connect to the EC2 instance and perform deployment steps
 ssh -i /tmp/deploy_key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
-  echo Pulling the Docker image...
-  docker pull $DOCKER_USERNAME/my-app-image:latest
+  echo Pulling the Docker image.
+  docker pull $DOCKERHUB_USERNAME/my-app-image:latest
 
   echo Stopping and removing existing container...
   docker stop my-app-container || true
