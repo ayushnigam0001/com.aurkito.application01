@@ -10,6 +10,8 @@ echo cat private key command
 cat PRIVATE.key > /tmp/deploy_key.pem
 echo permission 600
 chmod 600 /tmp/deploy_key.pem
+echo private key
+echo /tmp/deploy_key.pem
 
 # Connect to the EC2 instance and perform deployment steps
 ssh -i /tmp/deploy_key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
