@@ -1,25 +1,27 @@
 version: 0.2
-
-env:
-  variables:
-    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
-
 phases:
   install:
+    runtime-versions:
+      docker: 20
     commands:
-      - echo Entered the install phase...
-    finally:
-      - echo This always runs even if the update or install command fails 
+      
   pre_build:
     commands:
-      - cat ./helloworld.txt
-    finally:
-      - echo This always runs even if the login command fails 
+      - echo Logging in to docker hub
+      - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
   build:
     commands:
-      - echo Entered the build phase...
-    finally:
-      - echo This always runs even if the install command fails
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t my-app-image .
+      - echo Tagging the Docker image...
+      - docker tag my-app-image $DOCKER_USERNAME/my-app-image:latest
   post_build:
     commands:
-      - echo Entered the post_build phase...
+      - echo Pushing the Docker image to Docker Hub...
+      - docker push $DOCKER_USERNAME/my-app-image:latest
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: yes

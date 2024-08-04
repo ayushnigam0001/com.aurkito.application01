@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Nigam</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        #name-container {
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-top: 10px;
+            animation: fadeIn 4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="name-container">
+        <h1 id="name" class="glow">Ayush Nigam</h1>
+        <p>Welcome to my page!</p>
+    </div>
+
+    <script>
+        // JavaScript to add a small effect on the name text
+        document.addEventListener('DOMContentLoaded', function() {
+            const nameElement = document.getElementById('name');
+            nameElement.addEventListener('mouseover', function() {
+                nameElement.style.textShadow = '0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)';
+            });
+
+            nameElement.addEventListener('mouseout', function() {
+                nameElement.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5)';
+            });
+        });
+    </script>
+</body>
+</html>
